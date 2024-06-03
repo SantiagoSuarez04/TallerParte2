@@ -16,8 +16,8 @@ public class Tutorial {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
-    @Column(name = "tittle")
-    private String tittle;
+    @Column(name = "title")
+    private String title;
 
     @Column(name = "description")
     private String description;
@@ -30,8 +30,8 @@ public class Tutorial {
     }
 
     
-    public Tutorial(String tittle, String description, boolean published ){
-        this.tittle = tittle;
+    public Tutorial(String title, String description, boolean published ){
+        this.title = title;
         this.description = description;
         this.published = published;
     }
@@ -47,13 +47,13 @@ public class Tutorial {
     }
 
 
-    public String getTittle() {
-        return tittle;
+    public String getTitle() {
+        return title;
     }
 
 
-    public void setTittle(String tittle) {
-        this.tittle = tittle;
+    public void setTitle(String tittle) {
+        this.title = tittle;
     }
 
 
@@ -78,7 +78,7 @@ public class Tutorial {
 
     @Override
     public String toString() {
-        return "Tutorial [id=" + id + ", tittle=" + tittle + ", description=" + description + ", published=" + published
+        return "Tutorial [id=" + id + ", title=" + title + ", description=" + description + ", published=" + published
                 + "]";
     }
     

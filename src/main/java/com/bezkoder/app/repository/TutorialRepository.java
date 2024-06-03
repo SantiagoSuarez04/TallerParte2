@@ -1,7 +1,9 @@
 package com.bezkoder.app.repository;
 
-import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.List;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
 import com.bezkoder.app.domain.Tutorial;
 
 public interface TutorialRepository extends JpaRepository<Tutorial, Long> {
