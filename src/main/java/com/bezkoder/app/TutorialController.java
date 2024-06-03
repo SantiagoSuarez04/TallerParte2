@@ -20,7 +20,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.bezkoder.app.domain.Tutorial;
 import com.bezkoder.app.repository.TutorialRepository;
 
-@CrossOrigin(origins = "http://localhost:8088")
+@CrossOrigin(origins = "http://localhost:8081")
 @RestController
 @RequestMapping("/api")
 public class TutorialController {
@@ -55,15 +55,16 @@ public ResponseEntity<List<Tutorial>> getAllTutorials(@RequestParam(required = f
     }
 
     @PostMapping("/tutorials")
-    public ResponseEntity<Tutorial> createTutorial(@RequestBody Tutorial tutorial){
-        try{
-            Tutorial _tutorial= tutorialRepository
-             .save(new Tutorial(tutorial.getTitle(), tutorial.getDescription(), true));
-            return new ResponseEntity<>(_tutorial, HttpStatus.CREATED);
-        } catch (Exception e){
-            return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
-        }
+public ResponseEntity<Tutorial> createTutorial(@RequestBody Tutorial tutorial){
+    try{
+        Tutorial _tutorial= tutorialRepository
+              .save(new Tutorial(tutorial.getTitle(), tutorial.getDescription(), false));
+        return new ResponseEntity<>(_tutorial, HttpStatus.CREATED);
+    } catch (Exception e){
+        return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
     }
+}
+
 
 @PutMapping("/tutorials/{id}")
 public ResponseEntity<Tutorial> updateTutorial(@PathVariable("id") long id, @RequestBody Tutorial tutorial){
